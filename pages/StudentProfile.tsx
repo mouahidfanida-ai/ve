@@ -122,10 +122,12 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ isTeacher = false }) =>
   };
 
   const getShareUrl = () => {
-      // Always generate the cleanest share link possible
+      // Always generate the cleanest share link possible with Hash format for compatibility
       const fullId = getFullDisplayId();
       if (!fullId) return window.location.href;
-      return `${window.location.origin}/student-profile/${fullId}`;
+      
+      // Construct HashRouter URL: base/#/route
+      return `${window.location.origin}/#/student-profile/${fullId}`;
   };
 
   const handleCopyLink = () => {
